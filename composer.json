@@ -1,6 +1,7 @@
 {
     "name": "maartendeblock/yuki-api-client",
     "description": "A PHP client for interacting with the Yuki API",
+    "version": "dev-main",
     "type": "library",
     "license": "MIT",
     "autoload": {
