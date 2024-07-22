@@ -3,6 +3,7 @@
 use MaartenDeBlock\YukiApiClient\SubClient\Sales\Type\Authenticate;
 use MaartenDeBlock\YukiApiClient\SubClient\Sales\Type\Companies;
 use MaartenDeBlock\YukiApiClient\SubClient\Sales\YukiApiSalesClientFactory;
+use MaartenDeBlock\YukiApiClient\YukiApiClient;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -14,13 +15,10 @@ if(file_exists(__DIR__ . '/config.php')){
     require_once __DIR__ . '/config.php';
 }
 
+$client = new YukiApiClient();
 
-$client = YukiApiSalesClientFactory::factory('https://api.yukiworks.be/ws/Sales.asmx?WSDL');
-
-$response = $client->authenticate(new Authenticate($yukiApiKey));
+$response = $client->sales->authenticate(new Authenticate($client->getApiKey()));
 
 $sessionId = $response->getAuthenticateResult();
 
-$companies = $client->companies(new Companies($sessionId));
-
-$b =1;
+$companies = $client->sales->companies(new Companies($sessionId));
