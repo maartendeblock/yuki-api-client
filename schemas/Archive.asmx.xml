@@ -1,0 +1,3783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.theyukicompany.com/" xmlns:s1="http://www.theyukicompany.com/AbstractTypes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www.theyukicompany.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.theyukicompany.com/">
+      <s:element name="DocumentFolders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentFoldersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentFoldersResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentFolderCounts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentFolderCountsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentFolderCountsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentFolderTabs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="folderID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentFolderTabsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentFolderTabsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Documents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="sortOrder" type="tns:DocumentSortOrder"/>
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime"/>
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime"/>
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfRecords" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="startRecord" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="DocumentSortOrder">
+        <s:restriction base="s:string">
+          <s:enumeration value="CreatedDesc"/>
+          <s:enumeration value="CreatedAsc"/>
+          <s:enumeration value="ModifiedDesc"/>
+          <s:enumeration value="ModifiedAsc"/>
+          <s:enumeration value="DocumentDateDesc"/>
+          <s:enumeration value="DocumentDateAsc"/>
+          <s:enumeration value="ContactNameAsc"/>
+          <s:enumeration value="ContactNameDesc"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="DocumentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentsInFolder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="folderID" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="sortOrder" type="tns:DocumentSortOrder"/>
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime"/>
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime"/>
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfRecords" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="startRecord" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentsInFolderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentsInFolderResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentsInTab">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="tabID" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="sortOrder" type="tns:DocumentSortOrder"/>
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime"/>
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime"/>
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfRecords" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="startRecord" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentsInTabResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentsInTabResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="documentID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindDocumentResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentsByType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="documentType" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="sortOrder" type="tns:DocumentSortOrder"/>
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime"/>
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime"/>
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfRecords" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="startRecord" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentsByTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentsByTypeResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifiedDocumentsByType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="documentType" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="sortOrder" type="tns:DocumentSortOrder"/>
+            <s:element minOccurs="1" maxOccurs="1" name="modifiedSince" type="s:dateTime"/>
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfRecords" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="startRecord" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifiedDocumentsByTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModifiedDocumentsByTypeResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifiedDocumentsInFolder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="folderID" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="sortOrder" type="tns:DocumentSortOrder"/>
+            <s:element minOccurs="1" maxOccurs="1" name="modifiedSince" type="s:dateTime"/>
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfRecords" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="startRecord" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifiedDocumentsInFolderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModifiedDocumentsInFolderResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchDocuments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="searchOption" type="tns:SearchOption"/>
+            <s:element minOccurs="0" maxOccurs="1" name="searchText" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="folderID" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="tabID" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="sortOrder" type="tns:DocumentSortOrder"/>
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime"/>
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime"/>
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfRecords" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="startRecord" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="SearchOption">
+        <s:restriction base="s:string">
+          <s:enumeration value="All"/>
+          <s:enumeration value="Creator"/>
+          <s:enumeration value="Contact"/>
+          <s:enumeration value="Subject"/>
+          <s:enumeration value="Tag"/>
+          <s:enumeration value="Type"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SearchDocumentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchDocumentsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentBinaryData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="documentID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentBinaryDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentBinaryDataResult" type="s:base64Binary"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="documentID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentFileResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentDownloadUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="documentID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentDownloadUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentDownloadUrlResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentXMLData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="documentID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentXMLDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentXMLDataResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentXMLDataAsBinary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="documentID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentXMLDataAsBinaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentXMLDataAsBinaryResult" type="s:base64Binary"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentXMLDataAsString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="documentID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentXMLDataAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentXMLDataAsStringResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="documentID" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="maxWidth" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="maxHeight" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentImageResult" type="s:base64Binary"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentImageCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="documentID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentImageCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DocumentImageCountResult" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentBundle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="documentID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DocumentBundleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentBundleResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:base64Binary"/>
+            <s:element minOccurs="1" maxOccurs="1" name="folder" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="administrationID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadDocumentResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadDocumentWithData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:base64Binary"/>
+            <s:element minOccurs="1" maxOccurs="1" name="folder" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="administrationID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="currency" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:decimal"/>
+            <s:element minOccurs="0" maxOccurs="1" name="costCategory" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="paymentMethod" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="project" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="remarks" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadDocumentWithDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadDocumentWithDataResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadDocumentWithAttachment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName1" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="data1" type="s:base64Binary"/>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName2" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="data2" type="s:base64Binary"/>
+            <s:element minOccurs="1" maxOccurs="1" name="folder" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="administrationID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="currency" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:decimal"/>
+            <s:element minOccurs="0" maxOccurs="1" name="costCategory" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="paymentMethod" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="project" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="remarks" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadDocumentWithAttachmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadDocumentWithAttachmentResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentMethods">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PaymentMethodsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentMethodsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CostCategories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CostCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CostCategoriesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Currencies">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CurrenciesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrenciesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Menu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MenuResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Projects">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="administrationID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProjectsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateClient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="clientSecret" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="accessKey" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateClientResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateByUserName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateByUserNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateByUserNameResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Domains">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DomainsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DomainsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Companies">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompaniesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CompaniesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdministrationID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="administrationName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdministrationIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdministrationIDResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Administrations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdministrationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdministrationsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentDomain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentDomainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrentDomainResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCurrentDomain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="domainID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCurrentDomainResponse">
+        <s:complexType/>
+      </s:element>
+      <s:element name="Language">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LanguageResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SupportedLanguages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SupportedLanguagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SupportedLanguagesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetLanguageResponse">
+        <s:complexType/>
+      </s:element>
+      <s:element name="base64Binary" nillable="true" type="s:base64Binary"/>
+      <s:element name="string" nillable="true" type="s:string"/>
+      <s:element name="int" type="s:int"/>
+    </s:schema>
+    <s:schema targetNamespace="http://www.theyukicompany.com/AbstractTypes">
+<!--      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>-->
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string"/>
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DocumentFoldersSoapIn">
+    <wsdl:part name="parameters" element="tns:DocumentFolders"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFoldersSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentFoldersResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFolderCountsSoapIn">
+    <wsdl:part name="parameters" element="tns:DocumentFolderCounts"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFolderCountsSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentFolderCountsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFolderTabsSoapIn">
+    <wsdl:part name="parameters" element="tns:DocumentFolderTabs"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFolderTabsSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentFolderTabsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsSoapIn">
+    <wsdl:part name="parameters" element="tns:Documents"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsInFolderSoapIn">
+    <wsdl:part name="parameters" element="tns:DocumentsInFolder"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsInFolderSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentsInFolderResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsInTabSoapIn">
+    <wsdl:part name="parameters" element="tns:DocumentsInTab"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsInTabSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentsInTabResponse"/>
+  </wsdl:message>
+  <wsdl:message name="FindDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:FindDocument"/>
+  </wsdl:message>
+  <wsdl:message name="FindDocumentSoapOut">
+    <wsdl:part name="parameters" element="tns:FindDocumentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsByTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:DocumentsByType"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsByTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentsByTypeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ModifiedDocumentsByTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifiedDocumentsByType"/>
+  </wsdl:message>
+  <wsdl:message name="ModifiedDocumentsByTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifiedDocumentsByTypeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ModifiedDocumentsInFolderSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifiedDocumentsInFolder"/>
+  </wsdl:message>
+  <wsdl:message name="ModifiedDocumentsInFolderSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifiedDocumentsInFolderResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SearchDocumentsSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchDocuments"/>
+  </wsdl:message>
+  <wsdl:message name="SearchDocumentsSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchDocumentsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentBinaryDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DocumentBinaryData"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentBinaryDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentBinaryDataResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFileSoapIn">
+    <wsdl:part name="parameters" element="tns:DocumentFile"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFileSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentFileResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentDownloadUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:DocumentDownloadUrl"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentDownloadUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentDownloadUrlResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataSoapIn">
+    <wsdl:part name="parameters" element="tns:DocumentXMLData"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentXMLDataResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataAsBinarySoapIn">
+    <wsdl:part name="parameters" element="tns:DocumentXMLDataAsBinary"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataAsBinarySoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentXMLDataAsBinaryResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:DocumentXMLDataAsString"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentXMLDataAsStringResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentImageSoapIn">
+    <wsdl:part name="parameters" element="tns:DocumentImage"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentImageSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentImageResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentImageCountSoapIn">
+    <wsdl:part name="parameters" element="tns:DocumentImageCount"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentImageCountSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentImageCountResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentBundleSoapIn">
+    <wsdl:part name="parameters" element="tns:DocumentBundle"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentBundleSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentBundleResponse"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadDocument"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadDocumentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentWithDataSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadDocumentWithData"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentWithDataSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadDocumentWithDataResponse"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentWithAttachmentSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadDocumentWithAttachment"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentWithAttachmentSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadDocumentWithAttachmentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="PaymentMethodsSoapIn">
+    <wsdl:part name="parameters" element="tns:PaymentMethods"/>
+  </wsdl:message>
+  <wsdl:message name="PaymentMethodsSoapOut">
+    <wsdl:part name="parameters" element="tns:PaymentMethodsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CostCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:CostCategories"/>
+  </wsdl:message>
+  <wsdl:message name="CostCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:CostCategoriesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CurrenciesSoapIn">
+    <wsdl:part name="parameters" element="tns:Currencies"/>
+  </wsdl:message>
+  <wsdl:message name="CurrenciesSoapOut">
+    <wsdl:part name="parameters" element="tns:CurrenciesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MenuSoapIn">
+    <wsdl:part name="parameters" element="tns:Menu"/>
+  </wsdl:message>
+  <wsdl:message name="MenuSoapOut">
+    <wsdl:part name="parameters" element="tns:MenuResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ProjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:Projects"/>
+  </wsdl:message>
+  <wsdl:message name="ProjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:ProjectsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticate"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateClientSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenticateClient"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateClientSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateClientResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateByUserNameSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenticateByUserName"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateByUserNameSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateByUserNameResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DomainsSoapIn">
+    <wsdl:part name="parameters" element="tns:Domains"/>
+  </wsdl:message>
+  <wsdl:message name="DomainsSoapOut">
+    <wsdl:part name="parameters" element="tns:DomainsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CompaniesSoapIn">
+    <wsdl:part name="parameters" element="tns:Companies"/>
+  </wsdl:message>
+  <wsdl:message name="CompaniesSoapOut">
+    <wsdl:part name="parameters" element="tns:CompaniesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AdministrationIDSoapIn">
+    <wsdl:part name="parameters" element="tns:AdministrationID"/>
+  </wsdl:message>
+  <wsdl:message name="AdministrationIDSoapOut">
+    <wsdl:part name="parameters" element="tns:AdministrationIDResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AdministrationsSoapIn">
+    <wsdl:part name="parameters" element="tns:Administrations"/>
+  </wsdl:message>
+  <wsdl:message name="AdministrationsSoapOut">
+    <wsdl:part name="parameters" element="tns:AdministrationsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetCurrentDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentDomain"/>
+  </wsdl:message>
+  <wsdl:message name="GetCurrentDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentDomainResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetCurrentDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCurrentDomain"/>
+  </wsdl:message>
+  <wsdl:message name="SetCurrentDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCurrentDomainResponse"/>
+  </wsdl:message>
+  <wsdl:message name="LanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:Language"/>
+  </wsdl:message>
+  <wsdl:message name="LanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:LanguageResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SupportedLanguagesSoapIn">
+    <wsdl:part name="parameters" element="tns:SupportedLanguages"/>
+  </wsdl:message>
+  <wsdl:message name="SupportedLanguagesSoapOut">
+    <wsdl:part name="parameters" element="tns:SupportedLanguagesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:SetLanguage"/>
+  </wsdl:message>
+  <wsdl:message name="SetLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:SetLanguageResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFoldersHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFoldersHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFolderCountsHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="year" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFolderCountsHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFolderTabsHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="folderID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFolderTabsHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="sortOrder" type="s:string"/>
+    <wsdl:part name="startDate" type="s:string"/>
+    <wsdl:part name="endDate" type="s:string"/>
+    <wsdl:part name="numberOfRecords" type="s:string"/>
+    <wsdl:part name="startRecord" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsInFolderHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="folderID" type="s:string"/>
+    <wsdl:part name="sortOrder" type="s:string"/>
+    <wsdl:part name="startDate" type="s:string"/>
+    <wsdl:part name="endDate" type="s:string"/>
+    <wsdl:part name="numberOfRecords" type="s:string"/>
+    <wsdl:part name="startRecord" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsInFolderHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsInTabHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="tabID" type="s:string"/>
+    <wsdl:part name="sortOrder" type="s:string"/>
+    <wsdl:part name="startDate" type="s:string"/>
+    <wsdl:part name="endDate" type="s:string"/>
+    <wsdl:part name="numberOfRecords" type="s:string"/>
+    <wsdl:part name="startRecord" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsInTabHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="FindDocumentHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="FindDocumentHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsByTypeHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentType" type="s:string"/>
+    <wsdl:part name="sortOrder" type="s:string"/>
+    <wsdl:part name="startDate" type="s:string"/>
+    <wsdl:part name="endDate" type="s:string"/>
+    <wsdl:part name="numberOfRecords" type="s:string"/>
+    <wsdl:part name="startRecord" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsByTypeHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="ModifiedDocumentsByTypeHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentType" type="s:string"/>
+    <wsdl:part name="sortOrder" type="s:string"/>
+    <wsdl:part name="modifiedSince" type="s:string"/>
+    <wsdl:part name="numberOfRecords" type="s:string"/>
+    <wsdl:part name="startRecord" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="ModifiedDocumentsByTypeHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="ModifiedDocumentsInFolderHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="folderID" type="s:string"/>
+    <wsdl:part name="sortOrder" type="s:string"/>
+    <wsdl:part name="modifiedSince" type="s:string"/>
+    <wsdl:part name="numberOfRecords" type="s:string"/>
+    <wsdl:part name="startRecord" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="ModifiedDocumentsInFolderHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="SearchDocumentsHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="searchOption" type="s:string"/>
+    <wsdl:part name="searchText" type="s:string"/>
+    <wsdl:part name="folderID" type="s:string"/>
+    <wsdl:part name="tabID" type="s:string"/>
+    <wsdl:part name="sortOrder" type="s:string"/>
+    <wsdl:part name="startDate" type="s:string"/>
+    <wsdl:part name="endDate" type="s:string"/>
+    <wsdl:part name="numberOfRecords" type="s:string"/>
+    <wsdl:part name="startRecord" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="SearchDocumentsHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentBinaryDataHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentBinaryDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:base64Binary"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFileHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFileHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentDownloadUrlHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentDownloadUrlHttpGetOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataAsBinaryHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataAsBinaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:base64Binary"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataAsStringHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataAsStringHttpGetOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentImageHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+    <wsdl:part name="maxWidth" type="s:string"/>
+    <wsdl:part name="maxHeight" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentImageHttpGetOut">
+    <wsdl:part name="Body" element="tns:base64Binary"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentImageCountHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentImageCountHttpGetOut">
+    <wsdl:part name="Body" element="tns:int"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentBundleHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentBundleHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="fileName" type="s:string"/>
+    <wsdl:part name="data" type="s1:StringArray"/>
+    <wsdl:part name="folder" type="s:string"/>
+    <wsdl:part name="administrationID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentHttpGetOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentWithDataHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="fileName" type="s:string"/>
+    <wsdl:part name="data" type="s1:StringArray"/>
+    <wsdl:part name="folder" type="s:string"/>
+    <wsdl:part name="administrationID" type="s:string"/>
+    <wsdl:part name="currency" type="s:string"/>
+    <wsdl:part name="amount" type="s:string"/>
+    <wsdl:part name="costCategory" type="s:string"/>
+    <wsdl:part name="paymentMethod" type="s:string"/>
+    <wsdl:part name="project" type="s:string"/>
+    <wsdl:part name="remarks" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentWithDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentWithAttachmentHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="fileName1" type="s:string"/>
+    <wsdl:part name="data1" type="s1:StringArray"/>
+    <wsdl:part name="fileName2" type="s:string"/>
+    <wsdl:part name="data2" type="s1:StringArray"/>
+    <wsdl:part name="folder" type="s:string"/>
+    <wsdl:part name="administrationID" type="s:string"/>
+    <wsdl:part name="currency" type="s:string"/>
+    <wsdl:part name="amount" type="s:string"/>
+    <wsdl:part name="costCategory" type="s:string"/>
+    <wsdl:part name="paymentMethod" type="s:string"/>
+    <wsdl:part name="project" type="s:string"/>
+    <wsdl:part name="remarks" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentWithAttachmentHttpGetOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="PaymentMethodsHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="PaymentMethodsHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="CostCategoriesHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="CostCategoriesHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="CurrenciesHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="CurrenciesHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="MenuHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="MenuHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="ProjectsHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="administrationID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="ProjectsHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateHttpGetIn">
+    <wsdl:part name="accessKey" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateHttpGetOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateClientHttpGetIn">
+    <wsdl:part name="clientID" type="s:string"/>
+    <wsdl:part name="clientSecret" type="s:string"/>
+    <wsdl:part name="accessKey" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateClientHttpGetOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateByUserNameHttpGetIn">
+    <wsdl:part name="userName" type="s:string"/>
+    <wsdl:part name="password" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateByUserNameHttpGetOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="DomainsHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DomainsHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="CompaniesHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="CompaniesHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="AdministrationIDHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="administrationName" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="AdministrationIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="AdministrationsHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="AdministrationsHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="GetCurrentDomainHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetCurrentDomainHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="SetCurrentDomainHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="domainID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="SetCurrentDomainHttpGetOut"/>
+  <wsdl:message name="LanguageHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="LanguageHttpGetOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="SupportedLanguagesHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="SupportedLanguagesHttpGetOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="SetLanguageHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="language" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="SetLanguageHttpGetOut"/>
+  <wsdl:message name="DocumentFoldersHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFoldersHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFolderCountsHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="year" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFolderCountsHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFolderTabsHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="folderID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFolderTabsHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="sortOrder" type="s:string"/>
+    <wsdl:part name="startDate" type="s:string"/>
+    <wsdl:part name="endDate" type="s:string"/>
+    <wsdl:part name="numberOfRecords" type="s:string"/>
+    <wsdl:part name="startRecord" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsInFolderHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="folderID" type="s:string"/>
+    <wsdl:part name="sortOrder" type="s:string"/>
+    <wsdl:part name="startDate" type="s:string"/>
+    <wsdl:part name="endDate" type="s:string"/>
+    <wsdl:part name="numberOfRecords" type="s:string"/>
+    <wsdl:part name="startRecord" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsInFolderHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsInTabHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="tabID" type="s:string"/>
+    <wsdl:part name="sortOrder" type="s:string"/>
+    <wsdl:part name="startDate" type="s:string"/>
+    <wsdl:part name="endDate" type="s:string"/>
+    <wsdl:part name="numberOfRecords" type="s:string"/>
+    <wsdl:part name="startRecord" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsInTabHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="FindDocumentHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="FindDocumentHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsByTypeHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentType" type="s:string"/>
+    <wsdl:part name="sortOrder" type="s:string"/>
+    <wsdl:part name="startDate" type="s:string"/>
+    <wsdl:part name="endDate" type="s:string"/>
+    <wsdl:part name="numberOfRecords" type="s:string"/>
+    <wsdl:part name="startRecord" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentsByTypeHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="ModifiedDocumentsByTypeHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentType" type="s:string"/>
+    <wsdl:part name="sortOrder" type="s:string"/>
+    <wsdl:part name="modifiedSince" type="s:string"/>
+    <wsdl:part name="numberOfRecords" type="s:string"/>
+    <wsdl:part name="startRecord" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="ModifiedDocumentsByTypeHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="ModifiedDocumentsInFolderHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="folderID" type="s:string"/>
+    <wsdl:part name="sortOrder" type="s:string"/>
+    <wsdl:part name="modifiedSince" type="s:string"/>
+    <wsdl:part name="numberOfRecords" type="s:string"/>
+    <wsdl:part name="startRecord" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="ModifiedDocumentsInFolderHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="SearchDocumentsHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="searchOption" type="s:string"/>
+    <wsdl:part name="searchText" type="s:string"/>
+    <wsdl:part name="folderID" type="s:string"/>
+    <wsdl:part name="tabID" type="s:string"/>
+    <wsdl:part name="sortOrder" type="s:string"/>
+    <wsdl:part name="startDate" type="s:string"/>
+    <wsdl:part name="endDate" type="s:string"/>
+    <wsdl:part name="numberOfRecords" type="s:string"/>
+    <wsdl:part name="startRecord" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="SearchDocumentsHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentBinaryDataHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentBinaryDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:base64Binary"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFileHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentFileHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentDownloadUrlHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentDownloadUrlHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataAsBinaryHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataAsBinaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:base64Binary"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataAsStringHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentXMLDataAsStringHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentImageHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+    <wsdl:part name="maxWidth" type="s:string"/>
+    <wsdl:part name="maxHeight" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentImageHttpPostOut">
+    <wsdl:part name="Body" element="tns:base64Binary"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentImageCountHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentImageCountHttpPostOut">
+    <wsdl:part name="Body" element="tns:int"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentBundleHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="documentID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DocumentBundleHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="fileName" type="s:string"/>
+    <wsdl:part name="data" type="s1:StringArray"/>
+    <wsdl:part name="folder" type="s:string"/>
+    <wsdl:part name="administrationID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentWithDataHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="fileName" type="s:string"/>
+    <wsdl:part name="data" type="s1:StringArray"/>
+    <wsdl:part name="folder" type="s:string"/>
+    <wsdl:part name="administrationID" type="s:string"/>
+    <wsdl:part name="currency" type="s:string"/>
+    <wsdl:part name="amount" type="s:string"/>
+    <wsdl:part name="costCategory" type="s:string"/>
+    <wsdl:part name="paymentMethod" type="s:string"/>
+    <wsdl:part name="project" type="s:string"/>
+    <wsdl:part name="remarks" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentWithDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentWithAttachmentHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="fileName1" type="s:string"/>
+    <wsdl:part name="data1" type="s1:StringArray"/>
+    <wsdl:part name="fileName2" type="s:string"/>
+    <wsdl:part name="data2" type="s1:StringArray"/>
+    <wsdl:part name="folder" type="s:string"/>
+    <wsdl:part name="administrationID" type="s:string"/>
+    <wsdl:part name="currency" type="s:string"/>
+    <wsdl:part name="amount" type="s:string"/>
+    <wsdl:part name="costCategory" type="s:string"/>
+    <wsdl:part name="paymentMethod" type="s:string"/>
+    <wsdl:part name="project" type="s:string"/>
+    <wsdl:part name="remarks" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentWithAttachmentHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="PaymentMethodsHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="PaymentMethodsHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="CostCategoriesHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="CostCategoriesHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="CurrenciesHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="CurrenciesHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="MenuHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="MenuHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="ProjectsHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="administrationID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="ProjectsHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateHttpPostIn">
+    <wsdl:part name="accessKey" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateClientHttpPostIn">
+    <wsdl:part name="clientID" type="s:string"/>
+    <wsdl:part name="clientSecret" type="s:string"/>
+    <wsdl:part name="accessKey" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateClientHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateByUserNameHttpPostIn">
+    <wsdl:part name="userName" type="s:string"/>
+    <wsdl:part name="password" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="AuthenticateByUserNameHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="DomainsHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DomainsHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="CompaniesHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="CompaniesHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="AdministrationIDHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="administrationName" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="AdministrationIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="AdministrationsHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="AdministrationsHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="GetCurrentDomainHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetCurrentDomainHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="SetCurrentDomainHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="domainID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="SetCurrentDomainHttpPostOut"/>
+  <wsdl:message name="LanguageHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="LanguageHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="SupportedLanguagesHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="SupportedLanguagesHttpPostOut">
+    <wsdl:part name="Body"/>
+  </wsdl:message>
+  <wsdl:message name="SetLanguageHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string"/>
+    <wsdl:part name="language" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="SetLanguageHttpPostOut"/>
+  <wsdl:portType name="ArchiveSoap">
+    <wsdl:operation name="DocumentFolders">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all document folders in the archive</wsdl:documentation>
+      <wsdl:input message="tns:DocumentFoldersSoapIn"/>
+      <wsdl:output message="tns:DocumentFoldersSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFolderCounts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the document count of every document folder in the archive</wsdl:documentation>
+      <wsdl:input message="tns:DocumentFolderCountsSoapIn"/>
+      <wsdl:output message="tns:DocumentFolderCountsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFolderTabs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all tabs within a document folder</wsdl:documentation>
+      <wsdl:input message="tns:DocumentFolderTabsSoapIn"/>
+      <wsdl:output message="tns:DocumentFolderTabsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Documents">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents in a document folder with options to sort, select a date and select a row number</wsdl:documentation>
+      <wsdl:input message="tns:DocumentsSoapIn"/>
+      <wsdl:output message="tns:DocumentsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsInFolder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents in a given document folder with options to sort, select a date and select a row number</wsdl:documentation>
+      <wsdl:input message="tns:DocumentsInFolderSoapIn"/>
+      <wsdl:output message="tns:DocumentsInFolderSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsInTab">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents in a given document folder tab with options to sort, select a date and select a row number</wsdl:documentation>
+      <wsdl:input message="tns:DocumentsInTabSoapIn"/>
+      <wsdl:output message="tns:DocumentsInTabSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="FindDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns information of one document</wsdl:documentation>
+      <wsdl:input message="tns:FindDocumentSoapIn"/>
+      <wsdl:output message="tns:FindDocumentSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsByType">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents of a specific type, with options voor sorting, date selection, and paging</wsdl:documentation>
+      <wsdl:input message="tns:DocumentsByTypeSoapIn"/>
+      <wsdl:output message="tns:DocumentsByTypeSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiedDocumentsByType">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents of a specific type, with options voor sorting, date selection, and paging</wsdl:documentation>
+      <wsdl:input message="tns:ModifiedDocumentsByTypeSoapIn"/>
+      <wsdl:output message="tns:ModifiedDocumentsByTypeSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiedDocumentsInFolder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents of a specific type, with options voor sorting, date selection, and paging</wsdl:documentation>
+      <wsdl:input message="tns:ModifiedDocumentsInFolderSoapIn"/>
+      <wsdl:output message="tns:ModifiedDocumentsInFolderSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDocuments">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches documents using a given search value. Use -1 as Folder or Tab argument to search all folders or tabs, or '0001-01-01' as date selection to search all years</wsdl:documentation>
+      <wsdl:input message="tns:SearchDocumentsSoapIn"/>
+      <wsdl:output message="tns:SearchDocumentsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentBinaryData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the full binary data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentBinaryDataSoapIn"/>
+      <wsdl:output message="tns:DocumentBinaryDataSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the full binary data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentFileSoapIn"/>
+      <wsdl:output message="tns:DocumentFileSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentDownloadUrl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a presigned URL to retrieve the binary data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentDownloadUrlSoapIn"/>
+      <wsdl:output message="tns:DocumentDownloadUrlSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the XML data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentXMLDataSoapIn"/>
+      <wsdl:output message="tns:DocumentXMLDataSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLDataAsBinary">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the XML data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentXMLDataAsBinarySoapIn"/>
+      <wsdl:output message="tns:DocumentXMLDataAsBinarySoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLDataAsString">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the XML data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentXMLDataAsStringSoapIn"/>
+      <wsdl:output message="tns:DocumentXMLDataAsStringSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentImage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an image of the document, resized to a specified maximum width and height</wsdl:documentation>
+      <wsdl:input message="tns:DocumentImageSoapIn"/>
+      <wsdl:output message="tns:DocumentImageSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentImageCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the number of page images for the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentImageCountSoapIn"/>
+      <wsdl:output message="tns:DocumentImageCountSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentBundle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns documents that are bundled with a main document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentBundleSoapIn"/>
+      <wsdl:output message="tns:DocumentBundleSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Upload a document to the Yuki archive</wsdl:documentation>
+      <wsdl:input message="tns:UploadDocumentSoapIn"/>
+      <wsdl:output message="tns:UploadDocumentSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentWithData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Upload a document to the Yuki archive, with data specified for the document content</wsdl:documentation>
+      <wsdl:input message="tns:UploadDocumentWithDataSoapIn"/>
+      <wsdl:output message="tns:UploadDocumentWithDataSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentWithAttachment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Upload a bundled document to the Yuki archive, with data1 and data2 specified for the content of the two documents</wsdl:documentation>
+      <wsdl:input message="tns:UploadDocumentWithAttachmentSoapIn"/>
+      <wsdl:output message="tns:UploadDocumentWithAttachmentSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentMethods">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the payment methods for a invoice/receipt</wsdl:documentation>
+      <wsdl:input message="tns:PaymentMethodsSoapIn"/>
+      <wsdl:output message="tns:PaymentMethodsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CostCategories">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the cost categories for a invoice/receipt</wsdl:documentation>
+      <wsdl:input message="tns:CostCategoriesSoapIn"/>
+      <wsdl:output message="tns:CostCategoriesSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Currencies">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the payment methods for a invoice/receipt</wsdl:documentation>
+      <wsdl:input message="tns:CurrenciesSoapIn"/>
+      <wsdl:output message="tns:CurrenciesSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Menu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the menu entries for Yuki on devices</wsdl:documentation>
+      <wsdl:input message="tns:MenuSoapIn"/>
+      <wsdl:output message="tns:MenuSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Projects">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the available projects</wsdl:documentation>
+      <wsdl:input message="tns:ProjectsSoapIn"/>
+      <wsdl:output message="tns:ProjectsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a session ID if a valid API key is given</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateSoapIn"/>
+      <wsdl:output message="tns:AuthenticateSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateClient">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a session ID if a valid API key and API client are given</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateClientSoapIn"/>
+      <wsdl:output message="tns:AuthenticateClientSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateByUserName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a session ID if an existing Yuki username and password are given</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateByUserNameSoapIn"/>
+      <wsdl:output message="tns:AuthenticateByUserNameSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Domains">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all domains that can be accessed with the given session ID</wsdl:documentation>
+      <wsdl:input message="tns:DomainsSoapIn"/>
+      <wsdl:output message="tns:DomainsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Companies">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all available administrations</wsdl:documentation>
+      <wsdl:input message="tns:CompaniesSoapIn"/>
+      <wsdl:output message="tns:CompaniesSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AdministrationID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an administration ID for the given administration name</wsdl:documentation>
+      <wsdl:input message="tns:AdministrationIDSoapIn"/>
+      <wsdl:output message="tns:AdministrationIDSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Administrations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all administrations that can be accessed with the given session ID</wsdl:documentation>
+      <wsdl:input message="tns:AdministrationsSoapIn"/>
+      <wsdl:output message="tns:AdministrationsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentDomain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the current Yuki domain for the active session</wsdl:documentation>
+      <wsdl:input message="tns:GetCurrentDomainSoapIn"/>
+      <wsdl:output message="tns:GetCurrentDomainSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentDomain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set the current domain for the active session</wsdl:documentation>
+      <wsdl:input message="tns:SetCurrentDomainSoapIn"/>
+      <wsdl:output message="tns:SetCurrentDomainSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Language">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The language of the current user</wsdl:documentation>
+      <wsdl:input message="tns:LanguageSoapIn"/>
+      <wsdl:output message="tns:LanguageSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SupportedLanguages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the supported languages for the domain</wsdl:documentation>
+      <wsdl:input message="tns:SupportedLanguagesSoapIn"/>
+      <wsdl:output message="tns:SupportedLanguagesSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetLanguage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the language for the webservice session</wsdl:documentation>
+      <wsdl:input message="tns:SetLanguageSoapIn"/>
+      <wsdl:output message="tns:SetLanguageSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ArchiveHttpGet">
+    <wsdl:operation name="DocumentFolders">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all document folders in the archive</wsdl:documentation>
+      <wsdl:input message="tns:DocumentFoldersHttpGetIn"/>
+      <wsdl:output message="tns:DocumentFoldersHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFolderCounts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the document count of every document folder in the archive</wsdl:documentation>
+      <wsdl:input message="tns:DocumentFolderCountsHttpGetIn"/>
+      <wsdl:output message="tns:DocumentFolderCountsHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFolderTabs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all tabs within a document folder</wsdl:documentation>
+      <wsdl:input message="tns:DocumentFolderTabsHttpGetIn"/>
+      <wsdl:output message="tns:DocumentFolderTabsHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Documents">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents in a document folder with options to sort, select a date and select a row number</wsdl:documentation>
+      <wsdl:input message="tns:DocumentsHttpGetIn"/>
+      <wsdl:output message="tns:DocumentsHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsInFolder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents in a given document folder with options to sort, select a date and select a row number</wsdl:documentation>
+      <wsdl:input message="tns:DocumentsInFolderHttpGetIn"/>
+      <wsdl:output message="tns:DocumentsInFolderHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsInTab">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents in a given document folder tab with options to sort, select a date and select a row number</wsdl:documentation>
+      <wsdl:input message="tns:DocumentsInTabHttpGetIn"/>
+      <wsdl:output message="tns:DocumentsInTabHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="FindDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns information of one document</wsdl:documentation>
+      <wsdl:input message="tns:FindDocumentHttpGetIn"/>
+      <wsdl:output message="tns:FindDocumentHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsByType">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents of a specific type, with options voor sorting, date selection, and paging</wsdl:documentation>
+      <wsdl:input message="tns:DocumentsByTypeHttpGetIn"/>
+      <wsdl:output message="tns:DocumentsByTypeHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiedDocumentsByType">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents of a specific type, with options voor sorting, date selection, and paging</wsdl:documentation>
+      <wsdl:input message="tns:ModifiedDocumentsByTypeHttpGetIn"/>
+      <wsdl:output message="tns:ModifiedDocumentsByTypeHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiedDocumentsInFolder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents of a specific type, with options voor sorting, date selection, and paging</wsdl:documentation>
+      <wsdl:input message="tns:ModifiedDocumentsInFolderHttpGetIn"/>
+      <wsdl:output message="tns:ModifiedDocumentsInFolderHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDocuments">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches documents using a given search value. Use -1 as Folder or Tab argument to search all folders or tabs, or '0001-01-01' as date selection to search all years</wsdl:documentation>
+      <wsdl:input message="tns:SearchDocumentsHttpGetIn"/>
+      <wsdl:output message="tns:SearchDocumentsHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentBinaryData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the full binary data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentBinaryDataHttpGetIn"/>
+      <wsdl:output message="tns:DocumentBinaryDataHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the full binary data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentFileHttpGetIn"/>
+      <wsdl:output message="tns:DocumentFileHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentDownloadUrl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a presigned URL to retrieve the binary data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentDownloadUrlHttpGetIn"/>
+      <wsdl:output message="tns:DocumentDownloadUrlHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the XML data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentXMLDataHttpGetIn"/>
+      <wsdl:output message="tns:DocumentXMLDataHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLDataAsBinary">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the XML data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentXMLDataAsBinaryHttpGetIn"/>
+      <wsdl:output message="tns:DocumentXMLDataAsBinaryHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLDataAsString">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the XML data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentXMLDataAsStringHttpGetIn"/>
+      <wsdl:output message="tns:DocumentXMLDataAsStringHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentImage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an image of the document, resized to a specified maximum width and height</wsdl:documentation>
+      <wsdl:input message="tns:DocumentImageHttpGetIn"/>
+      <wsdl:output message="tns:DocumentImageHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentImageCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the number of page images for the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentImageCountHttpGetIn"/>
+      <wsdl:output message="tns:DocumentImageCountHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentBundle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns documents that are bundled with a main document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentBundleHttpGetIn"/>
+      <wsdl:output message="tns:DocumentBundleHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Upload a document to the Yuki archive</wsdl:documentation>
+      <wsdl:input message="tns:UploadDocumentHttpGetIn"/>
+      <wsdl:output message="tns:UploadDocumentHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentWithData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Upload a document to the Yuki archive, with data specified for the document content</wsdl:documentation>
+      <wsdl:input message="tns:UploadDocumentWithDataHttpGetIn"/>
+      <wsdl:output message="tns:UploadDocumentWithDataHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentWithAttachment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Upload a bundled document to the Yuki archive, with data1 and data2 specified for the content of the two documents</wsdl:documentation>
+      <wsdl:input message="tns:UploadDocumentWithAttachmentHttpGetIn"/>
+      <wsdl:output message="tns:UploadDocumentWithAttachmentHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentMethods">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the payment methods for a invoice/receipt</wsdl:documentation>
+      <wsdl:input message="tns:PaymentMethodsHttpGetIn"/>
+      <wsdl:output message="tns:PaymentMethodsHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CostCategories">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the cost categories for a invoice/receipt</wsdl:documentation>
+      <wsdl:input message="tns:CostCategoriesHttpGetIn"/>
+      <wsdl:output message="tns:CostCategoriesHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Currencies">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the payment methods for a invoice/receipt</wsdl:documentation>
+      <wsdl:input message="tns:CurrenciesHttpGetIn"/>
+      <wsdl:output message="tns:CurrenciesHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Menu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the menu entries for Yuki on devices</wsdl:documentation>
+      <wsdl:input message="tns:MenuHttpGetIn"/>
+      <wsdl:output message="tns:MenuHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Projects">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the available projects</wsdl:documentation>
+      <wsdl:input message="tns:ProjectsHttpGetIn"/>
+      <wsdl:output message="tns:ProjectsHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a session ID if a valid API key is given</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateHttpGetIn"/>
+      <wsdl:output message="tns:AuthenticateHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateClient">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a session ID if a valid API key and API client are given</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateClientHttpGetIn"/>
+      <wsdl:output message="tns:AuthenticateClientHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateByUserName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a session ID if an existing Yuki username and password are given</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateByUserNameHttpGetIn"/>
+      <wsdl:output message="tns:AuthenticateByUserNameHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Domains">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all domains that can be accessed with the given session ID</wsdl:documentation>
+      <wsdl:input message="tns:DomainsHttpGetIn"/>
+      <wsdl:output message="tns:DomainsHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Companies">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all available administrations</wsdl:documentation>
+      <wsdl:input message="tns:CompaniesHttpGetIn"/>
+      <wsdl:output message="tns:CompaniesHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AdministrationID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an administration ID for the given administration name</wsdl:documentation>
+      <wsdl:input message="tns:AdministrationIDHttpGetIn"/>
+      <wsdl:output message="tns:AdministrationIDHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Administrations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all administrations that can be accessed with the given session ID</wsdl:documentation>
+      <wsdl:input message="tns:AdministrationsHttpGetIn"/>
+      <wsdl:output message="tns:AdministrationsHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentDomain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the current Yuki domain for the active session</wsdl:documentation>
+      <wsdl:input message="tns:GetCurrentDomainHttpGetIn"/>
+      <wsdl:output message="tns:GetCurrentDomainHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentDomain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set the current domain for the active session</wsdl:documentation>
+      <wsdl:input message="tns:SetCurrentDomainHttpGetIn"/>
+      <wsdl:output message="tns:SetCurrentDomainHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Language">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The language of the current user</wsdl:documentation>
+      <wsdl:input message="tns:LanguageHttpGetIn"/>
+      <wsdl:output message="tns:LanguageHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SupportedLanguages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the supported languages for the domain</wsdl:documentation>
+      <wsdl:input message="tns:SupportedLanguagesHttpGetIn"/>
+      <wsdl:output message="tns:SupportedLanguagesHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetLanguage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the language for the webservice session</wsdl:documentation>
+      <wsdl:input message="tns:SetLanguageHttpGetIn"/>
+      <wsdl:output message="tns:SetLanguageHttpGetOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ArchiveHttpPost">
+    <wsdl:operation name="DocumentFolders">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all document folders in the archive</wsdl:documentation>
+      <wsdl:input message="tns:DocumentFoldersHttpPostIn"/>
+      <wsdl:output message="tns:DocumentFoldersHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFolderCounts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the document count of every document folder in the archive</wsdl:documentation>
+      <wsdl:input message="tns:DocumentFolderCountsHttpPostIn"/>
+      <wsdl:output message="tns:DocumentFolderCountsHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFolderTabs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all tabs within a document folder</wsdl:documentation>
+      <wsdl:input message="tns:DocumentFolderTabsHttpPostIn"/>
+      <wsdl:output message="tns:DocumentFolderTabsHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Documents">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents in a document folder with options to sort, select a date and select a row number</wsdl:documentation>
+      <wsdl:input message="tns:DocumentsHttpPostIn"/>
+      <wsdl:output message="tns:DocumentsHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsInFolder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents in a given document folder with options to sort, select a date and select a row number</wsdl:documentation>
+      <wsdl:input message="tns:DocumentsInFolderHttpPostIn"/>
+      <wsdl:output message="tns:DocumentsInFolderHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsInTab">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents in a given document folder tab with options to sort, select a date and select a row number</wsdl:documentation>
+      <wsdl:input message="tns:DocumentsInTabHttpPostIn"/>
+      <wsdl:output message="tns:DocumentsInTabHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="FindDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns information of one document</wsdl:documentation>
+      <wsdl:input message="tns:FindDocumentHttpPostIn"/>
+      <wsdl:output message="tns:FindDocumentHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsByType">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents of a specific type, with options voor sorting, date selection, and paging</wsdl:documentation>
+      <wsdl:input message="tns:DocumentsByTypeHttpPostIn"/>
+      <wsdl:output message="tns:DocumentsByTypeHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiedDocumentsByType">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents of a specific type, with options voor sorting, date selection, and paging</wsdl:documentation>
+      <wsdl:input message="tns:ModifiedDocumentsByTypeHttpPostIn"/>
+      <wsdl:output message="tns:ModifiedDocumentsByTypeHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiedDocumentsInFolder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the documents of a specific type, with options voor sorting, date selection, and paging</wsdl:documentation>
+      <wsdl:input message="tns:ModifiedDocumentsInFolderHttpPostIn"/>
+      <wsdl:output message="tns:ModifiedDocumentsInFolderHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDocuments">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Searches documents using a given search value. Use -1 as Folder or Tab argument to search all folders or tabs, or '0001-01-01' as date selection to search all years</wsdl:documentation>
+      <wsdl:input message="tns:SearchDocumentsHttpPostIn"/>
+      <wsdl:output message="tns:SearchDocumentsHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentBinaryData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the full binary data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentBinaryDataHttpPostIn"/>
+      <wsdl:output message="tns:DocumentBinaryDataHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the full binary data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentFileHttpPostIn"/>
+      <wsdl:output message="tns:DocumentFileHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentDownloadUrl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a presigned URL to retrieve the binary data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentDownloadUrlHttpPostIn"/>
+      <wsdl:output message="tns:DocumentDownloadUrlHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the XML data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentXMLDataHttpPostIn"/>
+      <wsdl:output message="tns:DocumentXMLDataHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLDataAsBinary">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the XML data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentXMLDataAsBinaryHttpPostIn"/>
+      <wsdl:output message="tns:DocumentXMLDataAsBinaryHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLDataAsString">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the XML data of the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentXMLDataAsStringHttpPostIn"/>
+      <wsdl:output message="tns:DocumentXMLDataAsStringHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentImage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an image of the document, resized to a specified maximum width and height</wsdl:documentation>
+      <wsdl:input message="tns:DocumentImageHttpPostIn"/>
+      <wsdl:output message="tns:DocumentImageHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentImageCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the number of page images for the document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentImageCountHttpPostIn"/>
+      <wsdl:output message="tns:DocumentImageCountHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentBundle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns documents that are bundled with a main document</wsdl:documentation>
+      <wsdl:input message="tns:DocumentBundleHttpPostIn"/>
+      <wsdl:output message="tns:DocumentBundleHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Upload a document to the Yuki archive</wsdl:documentation>
+      <wsdl:input message="tns:UploadDocumentHttpPostIn"/>
+      <wsdl:output message="tns:UploadDocumentHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentWithData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Upload a document to the Yuki archive, with data specified for the document content</wsdl:documentation>
+      <wsdl:input message="tns:UploadDocumentWithDataHttpPostIn"/>
+      <wsdl:output message="tns:UploadDocumentWithDataHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentWithAttachment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Upload a bundled document to the Yuki archive, with data1 and data2 specified for the content of the two documents</wsdl:documentation>
+      <wsdl:input message="tns:UploadDocumentWithAttachmentHttpPostIn"/>
+      <wsdl:output message="tns:UploadDocumentWithAttachmentHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentMethods">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the payment methods for a invoice/receipt</wsdl:documentation>
+      <wsdl:input message="tns:PaymentMethodsHttpPostIn"/>
+      <wsdl:output message="tns:PaymentMethodsHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CostCategories">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the cost categories for a invoice/receipt</wsdl:documentation>
+      <wsdl:input message="tns:CostCategoriesHttpPostIn"/>
+      <wsdl:output message="tns:CostCategoriesHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Currencies">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the payment methods for a invoice/receipt</wsdl:documentation>
+      <wsdl:input message="tns:CurrenciesHttpPostIn"/>
+      <wsdl:output message="tns:CurrenciesHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Menu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the menu entries for Yuki on devices</wsdl:documentation>
+      <wsdl:input message="tns:MenuHttpPostIn"/>
+      <wsdl:output message="tns:MenuHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Projects">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve the available projects</wsdl:documentation>
+      <wsdl:input message="tns:ProjectsHttpPostIn"/>
+      <wsdl:output message="tns:ProjectsHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a session ID if a valid API key is given</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateHttpPostIn"/>
+      <wsdl:output message="tns:AuthenticateHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateClient">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a session ID if a valid API key and API client are given</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateClientHttpPostIn"/>
+      <wsdl:output message="tns:AuthenticateClientHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateByUserName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a session ID if an existing Yuki username and password are given</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateByUserNameHttpPostIn"/>
+      <wsdl:output message="tns:AuthenticateByUserNameHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Domains">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all domains that can be accessed with the given session ID</wsdl:documentation>
+      <wsdl:input message="tns:DomainsHttpPostIn"/>
+      <wsdl:output message="tns:DomainsHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Companies">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all available administrations</wsdl:documentation>
+      <wsdl:input message="tns:CompaniesHttpPostIn"/>
+      <wsdl:output message="tns:CompaniesHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AdministrationID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an administration ID for the given administration name</wsdl:documentation>
+      <wsdl:input message="tns:AdministrationIDHttpPostIn"/>
+      <wsdl:output message="tns:AdministrationIDHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Administrations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all administrations that can be accessed with the given session ID</wsdl:documentation>
+      <wsdl:input message="tns:AdministrationsHttpPostIn"/>
+      <wsdl:output message="tns:AdministrationsHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentDomain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the current Yuki domain for the active session</wsdl:documentation>
+      <wsdl:input message="tns:GetCurrentDomainHttpPostIn"/>
+      <wsdl:output message="tns:GetCurrentDomainHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentDomain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set the current domain for the active session</wsdl:documentation>
+      <wsdl:input message="tns:SetCurrentDomainHttpPostIn"/>
+      <wsdl:output message="tns:SetCurrentDomainHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Language">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">The language of the current user</wsdl:documentation>
+      <wsdl:input message="tns:LanguageHttpPostIn"/>
+      <wsdl:output message="tns:LanguageHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SupportedLanguages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the supported languages for the domain</wsdl:documentation>
+      <wsdl:input message="tns:SupportedLanguagesHttpPostIn"/>
+      <wsdl:output message="tns:SupportedLanguagesHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetLanguage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sets the language for the webservice session</wsdl:documentation>
+      <wsdl:input message="tns:SetLanguageHttpPostIn"/>
+      <wsdl:output message="tns:SetLanguageHttpPostOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ArchiveSoap" type="tns:ArchiveSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="DocumentFolders">
+      <soap:operation soapAction="http://www.theyukicompany.com/DocumentFolders" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFolderCounts">
+      <soap:operation soapAction="http://www.theyukicompany.com/DocumentFolderCounts" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFolderTabs">
+      <soap:operation soapAction="http://www.theyukicompany.com/DocumentFolderTabs" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Documents">
+      <soap:operation soapAction="http://www.theyukicompany.com/Documents" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsInFolder">
+      <soap:operation soapAction="http://www.theyukicompany.com/DocumentsInFolder" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsInTab">
+      <soap:operation soapAction="http://www.theyukicompany.com/DocumentsInTab" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDocument">
+      <soap:operation soapAction="http://www.theyukicompany.com/FindDocument" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsByType">
+      <soap:operation soapAction="http://www.theyukicompany.com/DocumentsByType" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiedDocumentsByType">
+      <soap:operation soapAction="http://www.theyukicompany.com/ModifiedDocumentsByType" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiedDocumentsInFolder">
+      <soap:operation soapAction="http://www.theyukicompany.com/ModifiedDocumentsInFolder" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDocuments">
+      <soap:operation soapAction="http://www.theyukicompany.com/SearchDocuments" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentBinaryData">
+      <soap:operation soapAction="http://www.theyukicompany.com/DocumentBinaryData" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFile">
+      <soap:operation soapAction="http://www.theyukicompany.com/DocumentFile" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentDownloadUrl">
+      <soap:operation soapAction="http://www.theyukicompany.com/DocumentDownloadUrl" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLData">
+      <soap:operation soapAction="http://www.theyukicompany.com/DocumentXMLData" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLDataAsBinary">
+      <soap:operation soapAction="http://www.theyukicompany.com/DocumentXMLDataAsBinary" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLDataAsString">
+      <soap:operation soapAction="http://www.theyukicompany.com/DocumentXMLDataAsString" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentImage">
+      <soap:operation soapAction="http://www.theyukicompany.com/DocumentImage" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentImageCount">
+      <soap:operation soapAction="http://www.theyukicompany.com/DocumentImageCount" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentBundle">
+      <soap:operation soapAction="http://www.theyukicompany.com/DocumentBundle" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <soap:operation soapAction="http://www.theyukicompany.com/UploadDocument" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentWithData">
+      <soap:operation soapAction="http://www.theyukicompany.com/UploadDocumentWithData" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentWithAttachment">
+      <soap:operation soapAction="http://www.theyukicompany.com/UploadDocumentWithAttachment" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentMethods">
+      <soap:operation soapAction="http://www.theyukicompany.com/PaymentMethods" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CostCategories">
+      <soap:operation soapAction="http://www.theyukicompany.com/CostCategories" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Currencies">
+      <soap:operation soapAction="http://www.theyukicompany.com/Currencies" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Menu">
+      <soap:operation soapAction="http://www.theyukicompany.com/Menu" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Projects">
+      <soap:operation soapAction="http://www.theyukicompany.com/Projects" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://www.theyukicompany.com/Authenticate" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateClient">
+      <soap:operation soapAction="http://www.theyukicompany.com/AuthenticateClient" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateByUserName">
+      <soap:operation soapAction="http://www.theyukicompany.com/AuthenticateByUserName" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Domains">
+      <soap:operation soapAction="http://www.theyukicompany.com/Domains" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Companies">
+      <soap:operation soapAction="http://www.theyukicompany.com/Companies" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdministrationID">
+      <soap:operation soapAction="http://www.theyukicompany.com/AdministrationID" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Administrations">
+      <soap:operation soapAction="http://www.theyukicompany.com/Administrations" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentDomain">
+      <soap:operation soapAction="http://www.theyukicompany.com/GetCurrentDomain" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentDomain">
+      <soap:operation soapAction="http://www.theyukicompany.com/SetCurrentDomain" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Language">
+      <soap:operation soapAction="http://www.theyukicompany.com/Language" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupportedLanguages">
+      <soap:operation soapAction="http://www.theyukicompany.com/SupportedLanguages" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetLanguage">
+      <soap:operation soapAction="http://www.theyukicompany.com/SetLanguage" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArchiveSoap12" type="tns:ArchiveSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="DocumentFolders">
+      <soap12:operation soapAction="http://www.theyukicompany.com/DocumentFolders" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFolderCounts">
+      <soap12:operation soapAction="http://www.theyukicompany.com/DocumentFolderCounts" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFolderTabs">
+      <soap12:operation soapAction="http://www.theyukicompany.com/DocumentFolderTabs" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Documents">
+      <soap12:operation soapAction="http://www.theyukicompany.com/Documents" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsInFolder">
+      <soap12:operation soapAction="http://www.theyukicompany.com/DocumentsInFolder" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsInTab">
+      <soap12:operation soapAction="http://www.theyukicompany.com/DocumentsInTab" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDocument">
+      <soap12:operation soapAction="http://www.theyukicompany.com/FindDocument" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsByType">
+      <soap12:operation soapAction="http://www.theyukicompany.com/DocumentsByType" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiedDocumentsByType">
+      <soap12:operation soapAction="http://www.theyukicompany.com/ModifiedDocumentsByType" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiedDocumentsInFolder">
+      <soap12:operation soapAction="http://www.theyukicompany.com/ModifiedDocumentsInFolder" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDocuments">
+      <soap12:operation soapAction="http://www.theyukicompany.com/SearchDocuments" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentBinaryData">
+      <soap12:operation soapAction="http://www.theyukicompany.com/DocumentBinaryData" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFile">
+      <soap12:operation soapAction="http://www.theyukicompany.com/DocumentFile" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentDownloadUrl">
+      <soap12:operation soapAction="http://www.theyukicompany.com/DocumentDownloadUrl" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLData">
+      <soap12:operation soapAction="http://www.theyukicompany.com/DocumentXMLData" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLDataAsBinary">
+      <soap12:operation soapAction="http://www.theyukicompany.com/DocumentXMLDataAsBinary" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLDataAsString">
+      <soap12:operation soapAction="http://www.theyukicompany.com/DocumentXMLDataAsString" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentImage">
+      <soap12:operation soapAction="http://www.theyukicompany.com/DocumentImage" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentImageCount">
+      <soap12:operation soapAction="http://www.theyukicompany.com/DocumentImageCount" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentBundle">
+      <soap12:operation soapAction="http://www.theyukicompany.com/DocumentBundle" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <soap12:operation soapAction="http://www.theyukicompany.com/UploadDocument" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentWithData">
+      <soap12:operation soapAction="http://www.theyukicompany.com/UploadDocumentWithData" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentWithAttachment">
+      <soap12:operation soapAction="http://www.theyukicompany.com/UploadDocumentWithAttachment" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentMethods">
+      <soap12:operation soapAction="http://www.theyukicompany.com/PaymentMethods" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CostCategories">
+      <soap12:operation soapAction="http://www.theyukicompany.com/CostCategories" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Currencies">
+      <soap12:operation soapAction="http://www.theyukicompany.com/Currencies" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Menu">
+      <soap12:operation soapAction="http://www.theyukicompany.com/Menu" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Projects">
+      <soap12:operation soapAction="http://www.theyukicompany.com/Projects" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap12:operation soapAction="http://www.theyukicompany.com/Authenticate" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateClient">
+      <soap12:operation soapAction="http://www.theyukicompany.com/AuthenticateClient" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateByUserName">
+      <soap12:operation soapAction="http://www.theyukicompany.com/AuthenticateByUserName" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Domains">
+      <soap12:operation soapAction="http://www.theyukicompany.com/Domains" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Companies">
+      <soap12:operation soapAction="http://www.theyukicompany.com/Companies" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdministrationID">
+      <soap12:operation soapAction="http://www.theyukicompany.com/AdministrationID" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Administrations">
+      <soap12:operation soapAction="http://www.theyukicompany.com/Administrations" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentDomain">
+      <soap12:operation soapAction="http://www.theyukicompany.com/GetCurrentDomain" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentDomain">
+      <soap12:operation soapAction="http://www.theyukicompany.com/SetCurrentDomain" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Language">
+      <soap12:operation soapAction="http://www.theyukicompany.com/Language" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupportedLanguages">
+      <soap12:operation soapAction="http://www.theyukicompany.com/SupportedLanguages" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetLanguage">
+      <soap12:operation soapAction="http://www.theyukicompany.com/SetLanguage" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArchiveHttpGet" type="tns:ArchiveHttpGet">
+    <http:binding verb="GET"/>
+    <wsdl:operation name="DocumentFolders">
+      <http:operation location="/DocumentFolders"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFolderCounts">
+      <http:operation location="/DocumentFolderCounts"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFolderTabs">
+      <http:operation location="/DocumentFolderTabs"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Documents">
+      <http:operation location="/Documents"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsInFolder">
+      <http:operation location="/DocumentsInFolder"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsInTab">
+      <http:operation location="/DocumentsInTab"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDocument">
+      <http:operation location="/FindDocument"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsByType">
+      <http:operation location="/DocumentsByType"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiedDocumentsByType">
+      <http:operation location="/ModifiedDocumentsByType"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiedDocumentsInFolder">
+      <http:operation location="/ModifiedDocumentsInFolder"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDocuments">
+      <http:operation location="/SearchDocuments"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentBinaryData">
+      <http:operation location="/DocumentBinaryData"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFile">
+      <http:operation location="/DocumentFile"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentDownloadUrl">
+      <http:operation location="/DocumentDownloadUrl"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLData">
+      <http:operation location="/DocumentXMLData"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLDataAsBinary">
+      <http:operation location="/DocumentXMLDataAsBinary"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLDataAsString">
+      <http:operation location="/DocumentXMLDataAsString"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentImage">
+      <http:operation location="/DocumentImage"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentImageCount">
+      <http:operation location="/DocumentImageCount"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentBundle">
+      <http:operation location="/DocumentBundle"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <http:operation location="/UploadDocument"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentWithData">
+      <http:operation location="/UploadDocumentWithData"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentWithAttachment">
+      <http:operation location="/UploadDocumentWithAttachment"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentMethods">
+      <http:operation location="/PaymentMethods"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CostCategories">
+      <http:operation location="/CostCategories"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Currencies">
+      <http:operation location="/Currencies"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Menu">
+      <http:operation location="/Menu"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Projects">
+      <http:operation location="/Projects"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <http:operation location="/Authenticate"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateClient">
+      <http:operation location="/AuthenticateClient"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateByUserName">
+      <http:operation location="/AuthenticateByUserName"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Domains">
+      <http:operation location="/Domains"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Companies">
+      <http:operation location="/Companies"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdministrationID">
+      <http:operation location="/AdministrationID"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Administrations">
+      <http:operation location="/Administrations"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentDomain">
+      <http:operation location="/GetCurrentDomain"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentDomain">
+      <http:operation location="/SetCurrentDomain"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output/>
+    </wsdl:operation>
+    <wsdl:operation name="Language">
+      <http:operation location="/Language"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupportedLanguages">
+      <http:operation location="/SupportedLanguages"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetLanguage">
+      <http:operation location="/SetLanguage"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output/>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArchiveHttpPost" type="tns:ArchiveHttpPost">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="DocumentFolders">
+      <http:operation location="/DocumentFolders"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFolderCounts">
+      <http:operation location="/DocumentFolderCounts"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFolderTabs">
+      <http:operation location="/DocumentFolderTabs"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Documents">
+      <http:operation location="/Documents"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsInFolder">
+      <http:operation location="/DocumentsInFolder"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsInTab">
+      <http:operation location="/DocumentsInTab"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDocument">
+      <http:operation location="/FindDocument"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentsByType">
+      <http:operation location="/DocumentsByType"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiedDocumentsByType">
+      <http:operation location="/ModifiedDocumentsByType"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifiedDocumentsInFolder">
+      <http:operation location="/ModifiedDocumentsInFolder"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDocuments">
+      <http:operation location="/SearchDocuments"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentBinaryData">
+      <http:operation location="/DocumentBinaryData"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentFile">
+      <http:operation location="/DocumentFile"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentDownloadUrl">
+      <http:operation location="/DocumentDownloadUrl"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLData">
+      <http:operation location="/DocumentXMLData"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLDataAsBinary">
+      <http:operation location="/DocumentXMLDataAsBinary"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentXMLDataAsString">
+      <http:operation location="/DocumentXMLDataAsString"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentImage">
+      <http:operation location="/DocumentImage"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentImageCount">
+      <http:operation location="/DocumentImageCount"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentBundle">
+      <http:operation location="/DocumentBundle"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <http:operation location="/UploadDocument"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentWithData">
+      <http:operation location="/UploadDocumentWithData"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocumentWithAttachment">
+      <http:operation location="/UploadDocumentWithAttachment"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentMethods">
+      <http:operation location="/PaymentMethods"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CostCategories">
+      <http:operation location="/CostCategories"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Currencies">
+      <http:operation location="/Currencies"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Menu">
+      <http:operation location="/Menu"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Projects">
+      <http:operation location="/Projects"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <http:operation location="/Authenticate"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateClient">
+      <http:operation location="/AuthenticateClient"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateByUserName">
+      <http:operation location="/AuthenticateByUserName"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Domains">
+      <http:operation location="/Domains"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Companies">
+      <http:operation location="/Companies"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdministrationID">
+      <http:operation location="/AdministrationID"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Administrations">
+      <http:operation location="/Administrations"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentDomain">
+      <http:operation location="/GetCurrentDomain"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCurrentDomain">
+      <http:operation location="/SetCurrentDomain"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output/>
+    </wsdl:operation>
+    <wsdl:operation name="Language">
+      <http:operation location="/Language"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupportedLanguages">
+      <http:operation location="/SupportedLanguages"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetLanguage">
+      <http:operation location="/SetLanguage"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output/>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Archive">
+    <wsdl:port name="ArchiveSoap" binding="tns:ArchiveSoap">
+      <soap:address location="https://api.yukiworks.be/ws/Archive.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ArchiveSoap12" binding="tns:ArchiveSoap12">
+      <soap12:address location="https://api.yukiworks.be/ws/Archive.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ArchiveHttpGet" binding="tns:ArchiveHttpGet">
+      <http:address location="http://api.yukiworks.be/ws/Archive.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ArchiveHttpPost" binding="tns:ArchiveHttpPost">
+      <http:address location="http://api.yukiworks.be/ws/Archive.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
