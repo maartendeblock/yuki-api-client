@@ -3,6 +3,7 @@
 namespace MaartenDeBlock\YukiApiClient;
 
 use MaartenDeBlock\YukiApiClient\SubClient\Accounting\YukiApiAccountingClient;
+use MaartenDeBlock\YukiApiClient\SubClient\Accounting\YukiApiAccountingClientFactory;
 use MaartenDeBlock\YukiApiClient\SubClient\AccountingInfo\YukiApiAccountingInfoClient;
 use MaartenDeBlock\YukiApiClient\SubClient\AccountingInfo\YukiApiAccountingInfoClientFactory;
 use MaartenDeBlock\YukiApiClient\SubClient\Archive\YukiApiArchiveClient;
@@ -54,6 +55,7 @@ class YukiApiClient
     {
         $this->apiKey = $apiKey;
 
+        $this->accounting = YukiApiAccountingClientFactory::factory('https://api.yukiworks.be/ws/Accounting.asmx?wsdl');
         $this->accountinginfo = YukiApiAccountingInfoClientFactory::factory('https://api.yukiworks.be/ws/AccountingInfo.asmx?wsdl');
         $this->archive = YukiApiArchiveClientFactory::factory('https://api.yukiworks.be/ws/Archive.asmx?wsdl');
         $this->backoffice = YukiApiBackofficeClientFactory::factory('https://api.yukiworks.be/ws/Backoffice.asmx?wsdl');
