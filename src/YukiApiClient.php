@@ -7,6 +7,7 @@ use MaartenDeBlock\YukiApiClient\Environment\YukiEnvironment;
 use MaartenDeBlock\YukiApiClient\Session\SessionManager;
 use MaartenDeBlock\YukiApiClient\Fluent\DomainsService;
 use MaartenDeBlock\YukiApiClient\Fluent\AccountingService;
+use MaartenDeBlock\YukiApiClient\Fluent\ArchiveService;
 use MaartenDeBlock\YukiApiClient\Exception\YukiAuthenticationException;
 use MaartenDeBlock\YukiApiClient\SubClient\Domains\Type\Authenticate;
 
@@ -71,6 +72,7 @@ class YukiApiClient
     // Fluent service instances
     private ?DomainsService $fluentDomains = null;
     private ?AccountingService $fluentAccounting = null;
+    private ?ArchiveService $fluentArchive = null;
 
     /**
      * Create a new Yuki API Client
@@ -212,6 +214,20 @@ class YukiApiClient
             }
         }
         return $this->fluentAccounting;
+    }
+
+    /**
+     * Access archive service (fluent interface)
+     */
+    public function archive(): ArchiveService
+    {
+        if ($this->fluentArchive === null) {
+            $this->fluentArchive = new ArchiveService($this->soapArchive, $this->sessionManager);
+            if ($this->config->isDebugEnabled()) {
+                $this->fluentArchive->debug(true);
+            }
+        }
+        return $this->fluentArchive;
     }
 
     /**
