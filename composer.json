@@ -1,7 +1,7 @@
 {
     "name": "maartendeblock/yuki-api-client",
     "description": "Modern PHP client for the Yuki API with fluent interface, automatic session management, and comprehensive error handling",
-    "version": "2.0.0",
+    "version": "2.0.0-dev",
     "type": "library",
     "license": "MIT",
     "keywords": ["yuki", "api", "client", "fluent", "soap"],
