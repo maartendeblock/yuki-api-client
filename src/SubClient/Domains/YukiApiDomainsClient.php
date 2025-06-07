@@ -276,6 +276,23 @@ class YukiApiDomainsClient
     }
 
     /**
+     * Returns all administrations with internal customer code that can be accessed with the given session ID
+     *
+     * @param RequestInterface & Type\AdministrationsWithInternalCustomerCode $parameters
+     * @return ResultInterface & Type\AdministrationsWithInternalCustomerCodeResponse
+     * @throws SoapException
+     */
+    public function administrationsWithInternalCustomerCode(\MaartenDeBlock\YukiApiClient\SubClient\Domains\Type\AdministrationsWithInternalCustomerCode $parameters) : \MaartenDeBlock\YukiApiClient\SubClient\Domains\Type\AdministrationsWithInternalCustomerCodeResponse
+    {
+        $response = ($this->caller)('AdministrationsWithInternalCustomerCode', $parameters);
+
+        \Psl\Type\instance_of(\MaartenDeBlock\YukiApiClient\SubClient\Domains\Type\AdministrationsWithInternalCustomerCodeResponse::class)->assert($response);
+        \Psl\Type\instance_of(\Phpro\SoapClient\Type\ResultInterface::class)->assert($response);
+
+        return $response;
+    }
+
+    /**
      * Returns the current Yuki domain for the active session
      *
      * @param RequestInterface & Type\GetCurrentDomain $parameters
