@@ -10,6 +10,8 @@ Modern PHP client for the Yuki API with fluent interface, automatic session mana
 - **Fluent Interface**: Chainable, intuitive API calls
 - **Automatic Session Management**: No manual session handling required
 - **Smart Authentication**: Auto-authentication with session validation
+- **Model Classes**: Object-oriented models with XML serialization
+- **Type Safety**: Full type hints and IDE autocomplete support
 - **Comprehensive Error Handling**: Custom exceptions with context
 - **Environment Support**: Production, test, and development environments
 - **Flexible Configuration**: File-based, array-based, or object-based configuration
@@ -277,6 +279,230 @@ npm run test:playwright
 | `auto_authenticate` | bool | `true` | Automatically authenticate on client creation |
 | `cache_enabled` | bool | `false` | Enable response caching |
 | `cache_ttl` | int | `3600` | Cache time-to-live in seconds |
+
+## 📦 Model Classes
+
+The Yuki API Client includes comprehensive model classes for type-safe, object-oriented API interactions. These models provide automatic XML serialization, validation, and full IDE support.
+
+### Available Models
+
+- **`SalesInvoices`**: Collection wrapper with proper XML namespace
+- **`SalesInvoice`**: Complete sales invoice with all Yuki fields
+- **`Contact`**: Customer/supplier information
+- **`InvoiceLine`**: Invoice line items
+- **`Product`**: Product/service details with pricing and VAT
+- **`Company`**: Company/administration information
+
+### Basic Model Usage
+
+```php
+use MaartenDeBlock\YukiApiClient\Models\{SalesInvoices, SalesInvoice, Contact, InvoiceLine, Product};
+use MaartenDeBlock\YukiApiClient\SubClient\Sales\Type\XmlDoc;
+
+// Create a contact
+$contact = new Contact();
+$contact->setContactCode('CUST-001')
+        ->setFullName('Example Customer B.V.')
+        ->setContactType(Contact::CONTACT_TYPE_COMPANY)
+        ->setCountryCode('NL')
+        ->setCity('Amsterdam')
+        ->setAddressLine1('Example Street 123')
+        ->setZipcode('1000 AB')
+        ->setEmailAddress('customer@example.com');
+
+// Create a product
+$product = new Product();
+$product->setDescription('Professional Service')
+        ->setReference('SERV-001')
+        ->setSalesPrice(150.00)
+        ->setVatPercentage(21.00)
+        ->setVatIncluded(false)
+        ->setGlAccountCode('800000');
+
+// Create invoice line
+$line = new InvoiceLine();
+$line->setDescription('Consulting Services')
+     ->setProductQuantity(5)
+     ->setProduct($product);
+
+// Create sales invoice
+$invoice = new SalesInvoice();
+$invoice->setReference('INV-2024-001')
+        ->setSubject('Professional Consulting Services')
+        ->setPaymentMethod(SalesInvoice::PAYMENT_METHOD_ELECTRONIC_TRANSFER)
+        ->setProcess(true)
+        ->setEmailToCustomer(false)
+        ->setDate(new \DateTime())
+        ->setDueDate((new \DateTime())->modify('+30 days'))
+        ->setContact($contact)
+        ->addInvoiceLine($line);
+
+// Create collection
+$salesInvoices = SalesInvoices::single($invoice);
+
+// Validate before sending
+$errors = $salesInvoices->validate();
+if (!empty($errors)) {
+    throw new Exception('Validation failed: ' . implode(', ', $errors));
+}
+
+// Convert to XML and send to API
+$xmlDoc = XmlDoc::fromModel($salesInvoices);
+$result = $client->sales()->processSalesInvoices($sessionId, $adminId, $xmlDoc);
+```
+
+### Advanced Model Features
+
+#### Array Conversion
+
+```php
+// Create from array data
+$invoiceData = [
+    'reference' => 'INV-001',
+    'subject' => 'Test Invoice',
+    'contact' => [
+        'contactCode' => 'CUST-001',
+        'fullName' => 'Test Customer',
+        'contactType' => 'Company'
+    ],
+    'invoiceLines' => [
+        [
+            'description' => 'Service',
+            'productQuantity' => 2,
+            'product' => [
+                'description' => 'Consulting',
+                'salesPrice' => 100.00,
+                'vatPercentage' => 21.00
+            ]
+        ]
+    ]
+];
+
+$invoice = SalesInvoice::fromArray($invoiceData);
+
+// Convert back to array
+$array = $invoice->toArray();
+```
+
+#### Validation
+
+```php
+// Validate individual models
+$contactErrors = $contact->validate();
+$invoiceErrors = $invoice->validate();
+
+// Validate entire collection
+$allErrors = $salesInvoices->validate();
+
+if (!empty($allErrors)) {
+    foreach ($allErrors as $error) {
+        echo "Validation error: $error\n";
+    }
+}
+```
+
+#### XML Serialization
+
+```php
+// Generate XML for individual models
+$contactXml = $contact->toXml();
+$invoiceXml = $invoice->toXml();
+
+// Generate complete Yuki XML document
+$completeXml = $salesInvoices->toXml();
+echo $completeXml;
+```
+
+Output:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<SalesInvoices xmlns="urn:xmlns:http://www.theyukicompany.com:salesinvoices">
+    <SalesInvoice>
+        <Reference>INV-2024-001</Reference>
+        <Subject>Professional Consulting Services</Subject>
+        <PaymentMethod>ElectronicTransfer</PaymentMethod>
+        <Process>true</Process>
+        <EmailToCustomer>false</EmailToCustomer>
+        <Date>2024-12-07</Date>
+        <DueDate>2025-01-06</DueDate>
+        <Contact>
+            <ContactCode>CUST-001</ContactCode>
+            <FullName>Example Customer B.V.</FullName>
+            <CountryCode>NL</CountryCode>
+            <City>Amsterdam</City>
+            <AddressLine_1>Example Street 123</AddressLine_1>
+            <Zipcode>1000 AB</Zipcode>
+            <ContactType>Company</ContactType>
+            <EmailAddress>customer@example.com</EmailAddress>
+        </Contact>
+        <InvoiceLines>
+            <InvoiceLine>
+                <Description>Consulting Services</Description>
+                <ProductQuantity>5.00</ProductQuantity>
+                <Product>
+                    <Description>Professional Service</Description>
+                    <Reference>SERV-001</Reference>
+                    <SalesPrice>150.00</SalesPrice>
+                    <VATPercentage>21.00</VATPercentage>
+                    <VATIncluded>false</VATIncluded>
+                    <GLAccountCode>800000</GLAccountCode>
+                </Product>
+            </InvoiceLine>
+        </InvoiceLines>
+    </SalesInvoice>
+</SalesInvoices>
+```
+
+#### XmlDoc Integration
+
+```php
+// Create XmlDoc from model (recommended)
+$xmlDoc = XmlDoc::fromModel($salesInvoices);
+
+// Create XmlDoc from XML string
+$xmlDoc = XmlDoc::fromXml($salesInvoices->toXml());
+
+// Use in constructor
+$xmlDoc = new XmlDoc($salesInvoices);
+
+// All methods produce the same result
+$result = $salesClient->processSalesInvoices(
+    new ProcessSalesInvoices($sessionId, $adminId, $xmlDoc)
+);
+```
+
+### Model Constants
+
+#### Payment Methods
+```php
+SalesInvoice::PAYMENT_METHOD_ELECTRONIC_TRANSFER
+SalesInvoice::PAYMENT_METHOD_DIRECT_COLLECTION
+SalesInvoice::PAYMENT_METHOD_CREDIT_CARD
+SalesInvoice::PAYMENT_METHOD_DEBIT_CARD
+SalesInvoice::PAYMENT_METHOD_CASH
+SalesInvoice::PAYMENT_METHOD_IDEAL
+SalesInvoice::PAYMENT_METHOD_ONLINE
+SalesInvoice::PAYMENT_METHOD_TO_SETTLE
+```
+
+#### Contact Types
+```php
+Contact::CONTACT_TYPE_PERSON
+Contact::CONTACT_TYPE_COMPANY
+Contact::GENDER_MALE
+Contact::GENDER_FEMALE
+```
+
+### Model Benefits
+
+1. **Type Safety**: Full PHP type hints and IDE autocomplete
+2. **Validation**: Built-in validation with descriptive error messages
+3. **Maintainability**: Object-oriented structure is easy to maintain
+4. **Reusability**: Models can be easily cloned and modified
+5. **Testing**: Individual components can be unit tested
+6. **Documentation**: Self-documenting code with proper types
+7. **Performance**: Efficient XML generation without string concatenation
+8. **Flexibility**: Support for both fluent interface and array-based creation
 
 ## 🌍 Environment Support
 
