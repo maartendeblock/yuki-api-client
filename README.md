@@ -3,7 +3,7 @@
 [![Latest Stable Version](https://poser.pugx.org/maartendeblock/yuki-api-client/v/stable)](https://packagist.org/packages/maartendeblock/yuki-api-client)
 [![License](https://poser.pugx.org/maartendeblock/yuki-api-client/license)](https://packagist.org/packages/maartendeblock/yuki-api-client)
 
-Modern PHP client for the Yuki API with fluent interface, automatic session management, comprehensive error handling, and flexible configuration.
+Modern PHP client for the Yuki API with fluent interface, automatic session management, comprehensive error handling, and flexible configuration. API Documentation: https://documenter.getpostman.com/view/12207912/UVCBB51L
 
 ## 🚀 Features
 
@@ -292,6 +292,7 @@ The Yuki API Client includes comprehensive model classes for type-safe, object-o
 - **`InvoiceLine`**: Invoice line items
 - **`Product`**: Product/service details with pricing and VAT
 - **`Company`**: Company/administration information
+- **`Transaction`**: Business logic wrapper for accounting transactions with type inference and filtering
 
 ### Basic Model Usage
 
@@ -548,6 +549,166 @@ To add a new Yuki service:
    - Namespace: `MaartenDeBlock\YukiApiClient\SubClient\ServiceName`
 
 3. Add the service to the main client and create a fluent service wrapper.
+
+## 🔄 Transaction Model
+
+The Transaction model provides business logic and convenience methods for working with Yuki Transaction objects, including automatic type inference and filtering capabilities.
+
+### Basic Transaction Usage
+
+```php
+use MaartenDeBlock\YukiApiClient\Models\Transaction;
+
+// Create from Yuki Transaction object
+$transactionModel = Transaction::fromYukiTransaction($yukiTransaction);
+
+// Get business information
+$reference = $transactionModel->getReference();           // Transaction ID/HID
+$customerName = $transactionModel->getCustomerName();    // Contact name or description
+$type = $transactionModel->getInferredType();            // 'sales_invoice', 'purchase_invoice', etc.
+$amount = $transactionModel->getFormattedAmount();       // '€ 1,250.00'
+
+// Check transaction properties
+$isSalesInvoice = $transactionModel->isSalesInvoice();   // Boolean
+$isPaid = $transactionModel->isPaid();                   // Boolean (estimated)
+$isOverdue = $transactionModel->isOverdue();             // Boolean (estimated)
+$dueDate = $transactionModel->getEstimatedDueDate();     // DateTime or null
+```
+
+### Collection Operations
+
+```php
+// Convert array of Yuki transactions to Transaction models
+$yukiTransactions = [...]; // Array of YukiTransaction objects
+$transactionModels = Transaction::createCollection($yukiTransactions);
+
+// Filter operations
+$salesInvoices = Transaction::filterSalesInvoices($transactionModels);
+$unpaidInvoices = Transaction::filterUnpaid($transactionModels);
+$overdueInvoices = Transaction::filterOverdue($transactionModels);
+
+// Sorting
+$sortedByDueDate = Transaction::sortByDueDate($transactionModels);
+
+// Calculate totals
+$totalAmount = Transaction::calculateTotal($transactionModels);        // 15750.25
+$unpaidTotal = Transaction::calculateTotal($unpaidInvoices);           // 3250.75
+```
+
+### Type Inference
+
+The Transaction model automatically analyzes transactions to infer their type:
+
+```php
+// Transaction types
+Transaction::TYPE_SALES_INVOICE      // Customer invoices (positive amounts, revenue GL accounts)
+Transaction::TYPE_PURCHASE_INVOICE   // Supplier invoices (negative amounts, expense GL accounts)
+Transaction::TYPE_PAYMENT           // Payment transactions
+Transaction::TYPE_BANK_TRANSACTION   // Bank/balance sheet transactions
+Transaction::TYPE_JOURNAL_ENTRY     // General journal entries
+Transaction::TYPE_UNKNOWN           // Unrecognized transactions
+
+// Type checking
+$type = $transaction->getInferredType();
+$isSales = $transaction->isSalesInvoice();
+$isPurchase = $transaction->isPurchaseInvoice();
+```
+
+### Payment Status & Due Dates
+
+```php
+// Payment status (estimated based on description and related transactions)
+$isPaid = $transaction->isPaid();
+
+// Due date estimation (transaction date + 30 days for sales invoices)
+$dueDate = $transaction->getEstimatedDueDate();
+$isOverdue = $transaction->isOverdue();
+
+// Amount handling
+$amount = $transaction->getAmount();              // Raw amount (may be negative)
+$absoluteAmount = $transaction->getAbsoluteAmount();  // Always positive
+$isDebit = $transaction->isDebit();               // Positive amount
+$isCredit = $transaction->isCredit();             // Negative amount
+```
+
+### Array Conversion
+
+```php
+// Convert to array for debugging or API responses
+$array = $transaction->toArray();
+
+/*
+Array output:
+[
+    'id' => 'TXN-001',
+    'reference' => 'TXN-001',
+    'customer_name' => 'Customer Ltd.',
+    'inferred_type' => 'sales_invoice',
+    'is_sales_invoice' => true,
+    'is_paid' => false,
+    'formatted_amount' => '€ 1,250.00',
+    'estimated_due_date' => '2024-02-15',
+    'is_overdue' => true,
+    // ... more fields
+]
+*/
+```
+
+### Real-World Example
+
+```php
+// Get transactions from AccountingInfo API
+$accountingInfoClient = getSoapClient($client, 'AccountingInfo');
+$getTransactions = $accountingInfoClient->getTransactions(/* ... */);
+$yukiTransactions = extractTransactionsFromResponse($getTransactions);
+
+// Convert to Transaction models
+$transactions = Transaction::createCollection($yukiTransactions);
+
+// Business logic using Transaction models
+$unpaidSalesInvoices = Transaction::filterUnpaid(
+    Transaction::filterSalesInvoices($transactions)
+);
+
+$overdueInvoices = Transaction::filterOverdue($unpaidSalesInvoices);
+$totalOverdue = Transaction::calculateTotal($overdueInvoices);
+
+// Display invoice list
+foreach ($unpaidSalesInvoices as $invoice) {
+    echo sprintf(
+        "Invoice %s for %s: %s (Due: %s)%s\n",
+        $invoice->getReference(),
+        $invoice->getCustomerName(),
+        $invoice->getFormattedAmount(),
+        $invoice->getEstimatedDueDate()?->format('Y-m-d') ?? 'Unknown',
+        $invoice->isOverdue() ? ' - OVERDUE' : ''
+    );
+}
+```
+
+## 📋 Best Practices for Unpaid Invoices
+
+**Recommended Approach**: Use the dedicated Accounting service methods for financial data:
+
+```php
+// ✅ RECOMMENDED: Use Accounting.OutstandingDebtorItems for unpaid sales invoices
+$accountingClient = getSoapClient($client, 'Accounting');
+$outstandingItems = $accountingClient->outstandingDebtorItems(
+    new OutstandingDebtorItems($sessionId, $administrationId, false, 'DateAsc')
+);
+
+// ❌ NOT RECOMMENDED: Filter general transactions (slower, less accurate)
+$accountingInfoClient = getSoapClient($client, 'AccountingInfo');
+$allTransactions = $accountingInfoClient->getTransactions(/* ... */);
+// Then manually filter for unpaid invoices...
+```
+
+**Why use OutstandingDebtorItems?**
+- Direct API specifically for unpaid customer invoices
+- No need for complex filtering logic
+- More accurate payment status 
+- Better performance
+- Includes all relevant invoice details (due dates, amounts, customer info)
 
 ## 📄 Changelog
 
